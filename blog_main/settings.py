@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-!4^z$ble(w1ddjdqopzic87in)i(zsbi75#20yw5fh5r+$+*vu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
 
 
 # Application definition
@@ -62,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'blogs.context_processors.get_categories',
             ],
         },
     },
@@ -115,11 +117,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR /'static'
-STATICFILES_DIRS = [
-    'blog_main/static',
-]
+STATIC_URL = '/static/'
+# STATIC_ROOT = BASE_DIR /'static'
+# STATICFILES_DIRS = [
+#     'blog_main/static',
+# ]
+STATICFILES_DIRS = [ BASE_DIR / 'blog_main/static' ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
